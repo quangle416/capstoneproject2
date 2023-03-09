@@ -29,6 +29,24 @@ public class Account {
     @NonNull
     String password;
 
+    public Account(@NonNull String firstName, @NonNull String lastName, @NonNull String email, @NonNull String password, Set<BlogPost> blogPosts) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.blogPosts = blogPosts;
+    }
+
+    public Account(@NonNull String firstName, @NonNull String lastName, @NonNull String email, @NonNull String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
+
+    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Image image;
+
     @ToString.Exclude
     @OneToMany(mappedBy ="account", cascade = {CascadeType.PERSIST,
                                                 CascadeType.MERGE,

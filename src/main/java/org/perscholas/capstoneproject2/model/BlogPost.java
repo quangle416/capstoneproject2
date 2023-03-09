@@ -10,6 +10,7 @@ import java.util.Objects;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -23,13 +24,31 @@ public class BlogPost {
     @NonNull
     String title;
     @NonNull
+    @Column (columnDefinition = "TEXT")
     String content;
     @NonNull
     LocalDateTime createdDate;
 
+    public BlogPost(@NonNull String title, @NonNull String content, @NonNull LocalDateTime createdDate, Account account) {
+        this.title = title;
+        this.content = content;
+        this.createdDate = createdDate;
+        this.account = account;
+    }
+
+    public BlogPost(@NonNull String title, @NonNull String content, @NonNull LocalDateTime createdDate) {
+        this.title = title;
+        this.content = content;
+        this.createdDate = createdDate;
+    }
+
     @ToString.Exclude
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
-    @JoinColumn(name = "Publisher")
+    @ManyToOne(cascade = {CascadeType.PERSIST,
+                            CascadeType.MERGE,
+                            CascadeType.REFRESH,
+                            CascadeType.DETACH},
+                            fetch = FetchType.EAGER)
+    @JoinColumn(name = "Account_id")
     private Account account;
 
     @Override

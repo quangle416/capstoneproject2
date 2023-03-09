@@ -20,10 +20,6 @@ public class NewsLetter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     @NonNull
-    String firstName;
-    @NonNull
-    String lastName;
-    @NonNull
     String email;
 
 }
