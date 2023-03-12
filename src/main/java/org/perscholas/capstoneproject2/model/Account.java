@@ -5,9 +5,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.LinkedHashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @NoArgsConstructor
@@ -15,7 +13,6 @@ import java.util.Set;
 @Setter
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Slf4j
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +26,7 @@ public class Account {
     @NonNull
     String password;
 
-    public Account(@NonNull String firstName, @NonNull String lastName, @NonNull String email, @NonNull String password, Set<BlogPost> blogPosts) {
+    public Account(@NonNull String firstName, @NonNull String lastName, @NonNull String email, @NonNull String password, List<BlogPost> blogPosts) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -44,29 +41,39 @@ public class Account {
         this.password = password;
     }
 
+    public Account(@NonNull String firstName, @NonNull String lastName, @NonNull String email, @NonNull String password, List<BlogPost> blogPosts, Image image) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.blogPosts = blogPosts;
+        this.image = image;
+    }
+
+
+    @OneToMany(mappedBy = "account", cascade = {CascadeType.PERSIST,
+            CascadeType.MERGE,
+            CascadeType.REFRESH,
+            CascadeType.DETACH},
+            orphanRemoval = true,
+            fetch = FetchType.LAZY)
+
+    private List<BlogPost> blogPosts = new ArrayList<>();
+
+
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     private Image image;
-
-    @ToString.Exclude
-    @OneToMany(mappedBy ="account", cascade = {CascadeType.PERSIST,
-                                                CascadeType.MERGE,
-                                                CascadeType.REFRESH,
-                                                CascadeType.DETACH},
-                                                orphanRemoval = true,
-                                                fetch=FetchType.EAGER)
-
-    private Set<BlogPost> blogPosts= new LinkedHashSet<>();
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return Objects.equals(id, account.id) && firstName.equals(account.firstName) && lastName.equals(account.lastName) && email.equals(account.email) && password.equals(account.password) && Objects.equals(blogPosts, account.blogPosts);
+        return firstName.equals(account.firstName) && lastName.equals(account.lastName) && email.equals(account.email) && password.equals(account.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email, password, blogPosts);
+        return Objects.hash(firstName, lastName, email, password);
     }
 }

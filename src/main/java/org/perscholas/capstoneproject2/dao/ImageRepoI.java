@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-@Transactional(rollbackOn = Exception.class)
 public interface ImageRepoI extends JpaRepository<Image, Integer> {
 
 }

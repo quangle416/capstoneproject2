@@ -15,7 +15,6 @@ import java.util.Objects;
 @Setter
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Slf4j
 public class BlogPost {
 
     @Id
@@ -47,8 +46,8 @@ public class BlogPost {
                             CascadeType.MERGE,
                             CascadeType.REFRESH,
                             CascadeType.DETACH},
-                            fetch = FetchType.EAGER)
-    @JoinColumn(name = "Account_id")
+                            fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id")
     private Account account;
 
     @Override
@@ -56,11 +55,11 @@ public class BlogPost {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BlogPost blogPost = (BlogPost) o;
-        return Objects.equals(id, blogPost.id) && title.equals(blogPost.title) && content.equals(blogPost.content) && createdDate.equals(blogPost.createdDate) && Objects.equals(account, blogPost.account);
+        return title.equals(blogPost.title) && content.equals(blogPost.content) && createdDate.equals(blogPost.createdDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, content, createdDate, account);
+        return Objects.hash(title, content, createdDate);
     }
 }

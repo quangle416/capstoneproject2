@@ -19,8 +19,6 @@ public class AccountService {
         this.accountRepoI = accountRepoI;
     }
 
-    public void save(Account account) {
-        accountRepoI.save(account);
-    }
+
 
 }

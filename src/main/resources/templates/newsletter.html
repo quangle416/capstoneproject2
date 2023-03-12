@@ -28,16 +28,36 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <p>Join our email group and get post on all the new stories!</p>
                         <div class="my-5">
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
-                            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <form id="contactForm" data-sb-form-api-token="API_TOKEN"
+                                    method="post"
+                                    th:action="@{/newslettercomplete}"
+                                    th:object="${newsletter}">
                                 <div class="form-floating">
-                                    <input class="form-control" id="email" type="email" placeholder="Enter your email..." data-sb-validations="required,email" />
+
+                                    <input
+                                            type="text"
+                                            th:field="*{acctName}"
+                                            class="form-control"
+                                            id="acctName"
+                                           placeholder="Enter your name..."
+                                           data-sb-validations="required,acctName"
+                                           required minlength="2" maxlength="20"/>
+
+                                    <label for="acctName">Name</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                    <div class="invalid-feedback" data-sb-feedback="name:email">Name is not valid.</div>
+                                </div>
+                                <div class="form-floating">
+
+                                    <input
+                                            type="email"
+                                            th:field="*{email}"
+                                            class="form-control"
+                                           id="email"
+                                           placeholder="Enter your email..."
+                                           data-sb-validations="required,email"
+                                           required minlength="2" maxlength="20"/>
+
                                     <label for="email">Email address</label>
                                     <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                     <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>

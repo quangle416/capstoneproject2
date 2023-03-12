@@ -24,26 +24,22 @@ public class Image {
     @NonNull
     String url;
 
-    @ToString.Exclude
-    @OneToOne(cascade = {CascadeType.PERSIST,
-                        CascadeType.MERGE,
-                        CascadeType.REFRESH,
-                        CascadeType.DETACH},
-                        orphanRemoval = true,
-                        fetch = FetchType.EAGER)
+    @NonNull
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = true)
     @JoinColumn(name = "account_id")
     private Account account;
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Image image = (Image) o;
-        return id == image.id && name.equals(image.name) && url.equals(image.url) && Objects.equals(account, image.account);
+        return id == image.id && name.equals(image.name) && url.equals(image.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, url, account);
+        return Objects.hash(id, name, url);
     }
 }

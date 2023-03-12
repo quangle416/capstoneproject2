@@ -26,81 +26,69 @@
       <div class="col-md-10 col-lg-8 col-xl-7">
         <p>Want to be part of the Exploration Team? Fill out the form below and start writing about your experiences!</p>
         <div class="my-5">
-          <!-- * * * * * * * * * * * * * * *-->
-          <!-- * * SB Forms Contact Form * *-->
-          <!-- * * * * * * * * * * * * * * *-->
-          <!-- This form is pre-integrated with SB Forms.-->
-          <!-- To make this form functional, sign up at-->
-          <!-- https://startbootstrap.com/solution/contact-forms-->
-          <!-- to get an API token!-->
-          <form id="contactForm" data-sb-form-api-token="API_TOKEN"
-<!--          th:action="@{/signup}"-->
-<!--          method="post">-->
+
+          <form action="#" id="contactForm" data-sb-form-api-token="API_TOKEN"
+                th:action="@{/signupcomplete}"
+                th:object="${account}"
+                method="post">
             <div class="form-floating">
 
               <input
+                      type="text"
+                      th:field="*{firstName}"
                       class="form-control"
                       id="firstName"
-                      type="text"
                       placeholder="Enter your first name..."
-                      data-sb-validations="required" />
-              <!--                      th:field="*{Account.firstName}"-->
+                      data-sb-validations="required"
+                      required minlength="2" maxlength="20"/>
+
               <label for="firstName"> First Name</label>
               <div class="invalid-feedback" data-sb-feedback="name:required">First name is required.</div>
             </div>
             <div class="form-floating">
 
-              <input class="form-control"
-                     id="lastName"
+              <input
                      type="text"
+                     th:field="*{lastName}"
+                     class="form-control"
+                     id="lastName"
                      placeholder="Enter your name..."
-                     data-sb-validations="required" />
-              <!--                     th:field="*{Account.lastName}"-->
+                     data-sb-validations="required"
+                     required minlength="2" maxlength="20"/>
+
               <label for="lastName">Last Name</label>
               <div class="invalid-feedback" data-sb-feedback="name:required">Last name is required.</div>
             </div>
             <div class="form-floating">
 
-              <input class="form-control"
-                     id="email"
-                     type="email"
+              <input
+                      type="email"
+                      th:field="*{email}"
+                      class="form-control"
+                      id="email"
                      placeholder="Enter your email..."
                      data-sb-validations="required,email" />
-              <!--                     th:field="*{Account.email}"-->
+
               <label for="email">Email address</label>
               <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
               <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
             </div>
             <div class="form-floating">
 
-              <input class="form-control"
+              <input
+                      type="password"
+                      th:field="*{password}"
+                      class="form-control"
                      id="password"
-                     type="password"
                      placeholder="Enter your password..."
-                     data-sb-validations="required" />
-              <!--                     th:field="*{Account.password}"-->
+                     data-sb-validations="required"
+                      required minlength="6" maxlength="20"/>
+
               <label for="password">Password</label>
               <div class="invalid-feedback" data-sb-feedback="password:required">Password required.</div>
             </div>
             <br />
-            <!-- Submit success message-->
-            <!---->
-            <!-- This is what your users will see when the form-->
-            <!-- has successfully submitted-->
-            <div class="d-none" id="submitSuccessMessage">
-              <div class="text-center mb-3">
-                <div class="fw-bolder">Form submission successful!</div>
-                To activate this form, sign up at
-                <br />
-                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-              </div>
-            </div>
-            <!-- Submit error message-->
-            <!---->
-            <!-- This is what your users will see when there is-->
-            <!-- an error submitting the form-->
-            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-            <!-- Submit Button-->
+           <!-- Submit Button-->
             <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
           </form>
         </div>

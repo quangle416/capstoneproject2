@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-@Transactional(rollbackOn = Exception.class)
 public interface AuthGroupRepoI extends JpaRepository<AuthGroup,Integer> {
 }

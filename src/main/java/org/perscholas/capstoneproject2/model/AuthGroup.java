@@ -14,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 @Setter
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Slf4j
 public class AuthGroup {
 
     @Id

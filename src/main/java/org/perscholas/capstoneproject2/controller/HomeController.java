@@ -1,14 +1,21 @@
 package org.perscholas.capstoneproject2.controller;
 
 import org.perscholas.capstoneproject2.model.Account;
+import org.perscholas.capstoneproject2.model.BlogPost;
+import org.perscholas.capstoneproject2.service.BlogPostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Optional;
 
 @Controller
 public class HomeController {
+
+    BlogPostService blogPostService;
 
     @GetMapping(value = {"/", "index",})
     public String homePage(Model model) {
@@ -25,14 +32,9 @@ public class HomeController {
         return "post";
     }
 
-    @GetMapping("/signup")
-    public String signupPage(Model model) {
-        return "signup";
-    }
 
-
-    @GetMapping("/newsletter")
-    public String contactPage(Model model) {
-        return "newsletter";
-    }
+//    @GetMapping("/newsletter")
+//    public String newsLetterPage (Model model){
+//        return "newsletter";
+//    }
 }
