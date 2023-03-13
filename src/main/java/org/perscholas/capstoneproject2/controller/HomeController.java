@@ -33,8 +33,5 @@ public class HomeController {
     }
 
 
-//    @GetMapping("/newsletter")
-//    public String newsLetterPage (Model model){
-//        return "newsletter";
-//    }
+
 }

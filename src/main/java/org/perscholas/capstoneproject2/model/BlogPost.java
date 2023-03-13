@@ -48,6 +48,7 @@ public class BlogPost {
                             CascadeType.DETACH},
                             fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
+    @NonNull
     private Account account;
 
     @Override

@@ -51,7 +51,7 @@ public class MyCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        //creating dummy data to persist to database
+        //creating dummy data to check database connection for Account model
 
         Account account1 = new Account("Quang", "Le", "quangle@gmail.com", "password1");
         Account account2 = new Account("Mary", "Le", "maryle@gmail.com", "password2");
@@ -61,25 +61,27 @@ public class MyCommandLineRunner implements CommandLineRunner {
         accountRepoI.saveAndFlush(account2);
         accountRepoI.saveAndFlush(account3);
 
-//        BlogPost post1 = new BlogPost("Hello", "Lets talk about my interest", LocalDateTime.now(), account1);
-//        BlogPost post2 = new BlogPost("HelloWorld", "Lets talk about you", LocalDateTime.now(), account2);
-//        BlogPost post3 = new BlogPost("WhatsUp", "Baby on the move!", LocalDateTime.now(), account3);
-//        BlogPost post4 = new BlogPost("Up", "Higher and Higher we Go!", LocalDateTime.now());
-//
-//        blogPostService.
-//        blogPostRepoI.saveAndFlush(post1);
-//        blogPostRepoI.saveAndFlush(post2);
-//        blogPostRepoI.saveAndFlush(post3);
-//        blogPostRepoI.saveAndFlush(post4);
-//
-//        post1.setAccount(account1);
-//        post2.setAccount(account2);
-//        post3.setAccount(account3);
-//
-//        blogPostRepoI.saveAndFlush(post1);
-//        blogPostRepoI.saveAndFlush(post2);
-//        blogPostRepoI.saveAndFlush(post3);
+        //creating dummy data to check database connection for BlogPost model
 
+        BlogPost post1 = new BlogPost("Hello", "Lets talk about my interest", LocalDateTime.now());
+        BlogPost post2 = new BlogPost("HelloWorld", "Lets talk about you", LocalDateTime.now());
+        BlogPost post3 = new BlogPost("WhatsUp", "Baby on the move!", LocalDateTime.now());
+        BlogPost post4 = new BlogPost("Up", "Higher and Higher we Go!", LocalDateTime.now());
+
+        blogPostRepoI.saveAndFlush(post1);
+        blogPostRepoI.saveAndFlush(post2);
+        blogPostRepoI.saveAndFlush(post3);
+        blogPostRepoI.saveAndFlush(post4);
+
+        post1.setAccount(account1);
+        post2.setAccount(account2);
+        post3.setAccount(account3);
+
+        blogPostRepoI.saveAndFlush(post1);
+        blogPostRepoI.saveAndFlush(post2);
+        blogPostRepoI.saveAndFlush(post3);
+
+        //creating dummy data to check database connection for Network model
         NewsLetter email1 = new NewsLetter("le", "lequang@gmail");
         NewsLetter email2 = new NewsLetter("mary", "lemary@gmail");
         NewsLetter email3 = new NewsLetter("lilly","lillian@gmail");

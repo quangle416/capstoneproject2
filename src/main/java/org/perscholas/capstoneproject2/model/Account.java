@@ -60,6 +60,10 @@ public class Account {
 
     private List<BlogPost> blogPosts = new ArrayList<>();
 
+    public void addBlogPost(BlogPost blogPost){
+    blogPosts.add(blogPost);
+    blogPost.setAccount(this);
+    }
 
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     private Image image;
