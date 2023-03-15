@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<div th:replace="~{fragments/fragment.html :: head}"></div>
+
+<body>
+<!-- Navigation-->
+<div th:replace="~{fragments/fragment.html :: navbar}"></div>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('assets/img/victoriafalls.jpg')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="page-heading">
+          <h1>Edit Account</h1>
+          <span class="subheading"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Main Content-->
+<main class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <p> Update information and then click Send</p>
+        <div class="my-5">
+
+          <form action="#" id="contactForm" data-sb-form-api-token="API_TOKEN"
+                th:action="@{/signup/{id} (id=${account.id})}"
+                th:object="${account}"
+                method="post">
+            <div class="form-floating">
+
+              <input
+                      type="text"
+                      th:field="*{firstName}"
+                      class="form-control"
+                      id="firstName"
+                      placeholder="Enter your first name..."
+                      data-sb-validations="required"
+                      required minlength="2" maxlength="20"/>
+
+              <label for="firstName"> First Name</label>
+              <div class="invalid-feedback" data-sb-feedback="name:required">First name is required.</div>
+            </div>
+            <div class="form-floating">
+
+              <input
+                     type="text"
+                     th:field="*{lastName}"
+                     class="form-control"
+                     id="lastName"
+                     placeholder="Enter your name..."
+                     data-sb-validations="required"
+                     required minlength="2" maxlength="20"
+              />
+
+              <label for="lastName">Last Name</label>
+              <div class="invalid-feedback" data-sb-feedback="name:required">Last name is required.</div>
+            </div>
+            <div class="form-floating">
+
+              <input
+                      type="email"
+                      th:field="*{email}"
+                      class="form-control"
+                      id="email"
+                     placeholder="Enter your email..."
+                     data-sb-validations="required,email"
+                      required minlength="2" maxlength="30"
+              />
+
+
+              <label for="email">Email address</label>
+              <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+              <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+            </div>
+            <div class="form-floating">
+
+              <input
+                      type="password"
+                      th:field="*{password}"
+                      class="form-control"
+                     id="password"
+                     placeholder="Enter your password..."
+                     data-sb-validations="required"
+                      required minlength="6" maxlength="30"/>
+
+              <label for="password">Password</label>
+              <div class="invalid-feedback" data-sb-feedback="password:required">Password required.</div>
+            </div>
+            <br />
+           <!-- Submit Button-->
+            <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- Footer-->
+<div th:replace="~{fragments/fragment.html :: footer}"></div>
+<div class="text-center"><a th:href="@{/signupall}">All ACCOUNTS</a><div>
+</body>
+</html>

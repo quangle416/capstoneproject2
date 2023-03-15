@@ -71,10 +71,12 @@ public class MyCommandLineRunner implements CommandLineRunner {
         post1.setAccount(account1);
         post2.setAccount(account2);
         post3.setAccount(account3);
+        post4.setAccount(account3);
 
         blogPostRepoI.saveAndFlush(post1);
         blogPostRepoI.saveAndFlush(post2);
         blogPostRepoI.saveAndFlush(post3);
+        blogPostRepoI.saveAndFlush(post4);
 
         //creating dummy data to check database connection for Network model
         NewsLetter email1 = new NewsLetter("le", "lequang@gmail");

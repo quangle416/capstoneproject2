@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<div th:replace="~{fragments/fragment.html :: head}"></div>
+
+<body>
+<!-- Navigation-->
+<div th:replace="~{fragments/fragment.html :: navbar}"></div>
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/venice2.jpg')">
+
+        </header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post preview-->
+            <div>
+                <h2 th:text="${singleBlogPost.title}"></h2>
+                <h5 th:text="'Created at ' + ${singleBlogPost.createdAt}"></h5>
+                <p th:text="${singleBlogPost.body}"></p>
+            </div>
+<!-- Footer-->
+<div th:replace="~{fragments/fragment.html :: footer}"></div>
+</body>
+</html>

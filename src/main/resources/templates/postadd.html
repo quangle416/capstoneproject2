@@ -13,8 +13,8 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="page-heading">
-                    <h1>All Our Travels </h1>
-                    <span class="subheading">Catch up on all stories below</span>
+                    <h1>Create a Post</h1>
+                    <span class="subheading"></span>
                 </div>
             </div>
         </div>
@@ -26,12 +26,7 @@
         <div class="col-md-10 col-lg-8 col-xl-7">
             <!-- Post preview-->
             <div class="post-preview">
-                <div class="blog" th:each="allBlogPost : ${allBlogPost}">
 
-                    <h2><a th:href="@{'/post/' + ${allBlogPost.id}}" th:text="${allBlogPost.title}"></a></h2>
-                    <h6 th:text="'Written on ' + ${allBlogPost.createdDate}"></h6>
-                    <p th:text="${allBlogPost.content}"></p>
-                </div>
             </div>
 
 <!--            <div class="post-preview">-->
@@ -85,9 +80,8 @@
 <!--                </p>-->
 <!--            </div>-->
 <!--            &lt;!&ndash; Divider&ndash;&gt;-->
-
 <!-- Footer-->
-            <div class="d-flex justify-content-center mb-4"><a class="btn btn-primary text-uppercase" th:href="@{/postadd}">Create a Post</a></div>
+
 <div th:replace="~{fragments/fragment.html :: footer}"></div>
 </body>
 </html>
