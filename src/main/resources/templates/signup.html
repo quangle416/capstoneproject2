@@ -7,12 +7,12 @@
 <!-- Navigation-->
 <div th:replace="~{fragments/fragment.html :: navbar}"></div>
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
+<header class="masthead" style="background-image: url('assets/img/victoriafalls.jpg')">
   <div class="container position-relative px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-7">
         <div class="page-heading">
-          <h1>Share Your Stories</h1>
+          <h1>Join Our Team</h1>
           <span class="subheading">Create an account and start posting!!</span>
         </div>
       </div>
@@ -27,7 +27,7 @@
         <p>Want to be part of the Exploration Team? Fill out the form below and start writing about your experiences!</p>
         <div class="my-5">
 
-          <form action="#" id="contactForm" data-sb-form-api-token="API_TOKEN"
+          <form id="contactForm" data-sb-form-api-token="API_TOKEN"
                 th:action="@{/signupcomplete}"
                 th:object="${account}"
                 method="post">
@@ -54,7 +54,8 @@
                      id="lastName"
                      placeholder="Enter your name..."
                      data-sb-validations="required"
-                     required minlength="2" maxlength="20"/>
+                     required minlength="2" maxlength="20"
+              />
 
               <label for="lastName">Last Name</label>
               <div class="invalid-feedback" data-sb-feedback="name:required">Last name is required.</div>
@@ -67,7 +68,10 @@
                       class="form-control"
                       id="email"
                      placeholder="Enter your email..."
-                     data-sb-validations="required,email" />
+                     data-sb-validations="required,email"
+                      required minlength="2" maxlength="30"
+              />
+
 
               <label for="email">Email address</label>
               <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
@@ -82,7 +86,7 @@
                      id="password"
                      placeholder="Enter your password..."
                      data-sb-validations="required"
-                      required minlength="6" maxlength="20"/>
+                      required minlength="6" maxlength="30"/>
 
               <label for="password">Password</label>
               <div class="invalid-feedback" data-sb-feedback="password:required">Password required.</div>

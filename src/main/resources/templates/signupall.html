@@ -7,13 +7,13 @@
 <!-- Navigation-->
 <div th:replace="~{fragments/fragment.html :: navbar}"></div>
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
+<header class="masthead" style="background-image: url('assets/img/venice.jpg')">
   <div class="container position-relative px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-7">
         <div class="page-heading">
-          <h1>Share Your Stories</h1>
-          <span class="subheading">Create an account and start posting!!</span>
+          <h1>List of Storytellers</h1>
+          <span class="subheading">Thank you for sharing your life!</span>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
               <table class="table table-striped .table-hove ">
                 <thead>
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col">ID</th>
                   <th scope="col">First Name</th>
                   <th scope="col">Last Name</th>
                   <th scope="col">Email</th>
@@ -42,14 +42,19 @@
                   <td th:text="${allAccount.lastName}"></td>
                   <td th:text="${allAccount.email}"></td>
                   <td th:text="${allAccount.password}"></td>
-                  <th scope="col">Action</th>
+                  <td>
+                    <a th:href="@{/signup/edit/{id} (id=${allAccount.id})}">Edit </a>/
+                    <a th:href="@{/signup/{id} (id=${allAccount.id})}">Delete</a>
+                  </td>
                 </tr>
         </tbody>
         </table>
       </div>
     </div>
   </div>
+  <div class="d-flex justify-content-center mb-4"><a class="btn btn-primary text-uppercase" th:href="@{/signup}">Add More</a></div>
 </main>
+
 <!-- Footer-->
 <div th:replace="~{fragments/fragment.html :: footer}"></div>
 </body>

@@ -1,11 +1,11 @@
-package org.perscholas.capstoneproject2.controller;
+package org.perscholas.quanglecapstoneproject.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/blogpost")
+@RequestMapping("/admin")
 @Slf4j
-public class BlogPostController {
+public class AdminController {
 }

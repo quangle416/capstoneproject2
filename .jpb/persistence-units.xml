@@ -4,7 +4,7 @@
     <persistence-units>
       <persistence-unit name="Default">
         <packages>
-          <package value="org.perscholas.capstoneproject2" />
+          <package value="org.perscholas.quanglecapstoneproject" />
         </packages>
       </persistence-unit>
     </persistence-units>

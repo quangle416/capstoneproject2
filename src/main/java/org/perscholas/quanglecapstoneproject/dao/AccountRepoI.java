@@ -1,6 +1,6 @@
-package org.perscholas.capstoneproject2.dao;
+package org.perscholas.quanglecapstoneproject.dao;
 
-import org.perscholas.capstoneproject2.model.Account;
+import org.perscholas.quanglecapstoneproject.model.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,12 +1,8 @@
-package org.perscholas.capstoneproject2.model;
+package org.perscholas.quanglecapstoneproject.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.Objects;
 
@@ -21,6 +17,7 @@ public class NewsLetter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     @NonNull
+
     String acctName;
     @NonNull
     String email;

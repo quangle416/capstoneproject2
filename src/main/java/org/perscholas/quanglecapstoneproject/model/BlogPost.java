@@ -1,9 +1,8 @@
-package org.perscholas.capstoneproject2.model;
+package org.perscholas.quanglecapstoneproject.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -28,7 +27,8 @@ public class BlogPost {
     @NonNull
     LocalDateTime createdDate;
 
-    public BlogPost(@NonNull String title, @NonNull String content, @NonNull LocalDateTime createdDate, Account account) {
+    public BlogPost(@NonNull String title, @NonNull String content, @NonNull LocalDateTime createdDate,
+                    @NonNull Account account) {
         this.title = title;
         this.content = content;
         this.createdDate = createdDate;
@@ -48,7 +48,7 @@ public class BlogPost {
                             CascadeType.DETACH},
                             fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
-    @NonNull
+
     private Account account;
 
     @Override

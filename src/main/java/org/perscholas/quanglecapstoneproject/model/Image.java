@@ -1,4 +1,4 @@
-package org.perscholas.capstoneproject2.model;
+package org.perscholas.quanglecapstoneproject.model;
 
 import jakarta.persistence.*;
 import lombok.*;

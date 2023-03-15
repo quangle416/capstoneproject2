@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.perscholas</groupId>
-	<artifactId>capstoneproject</artifactId>
+	<artifactId>quanglecapstoneproject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>capstoneproject</name>
 	<description>Capstone Project</description>

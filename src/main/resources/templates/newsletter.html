@@ -9,7 +9,7 @@
 <div th:replace="~{fragments/fragment.html :: navbar}"></div>
 
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
+        <header class="masthead" style="background-image: url('assets/img/GreatwallofChina.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -30,7 +30,7 @@
                         <div class="my-5">
                             <form id="contactForm" data-sb-form-api-token="API_TOKEN"
                                     method="post"
-                                    th:action="@{/newslettercomplete}"
+                                    th:action="@{/newsletteradded}"
                                     th:object="${newsletter}">
                                 <div class="form-floating">
 
@@ -41,7 +41,7 @@
                                             id="acctName"
                                            placeholder="Enter your name..."
                                            data-sb-validations="required,acctName"
-                                           required minlength="2" maxlength="20"/>
+                                           required minlength="2" maxlength="30"/>
 
                                     <label for="acctName">Name</label>
                                     <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
@@ -56,7 +56,7 @@
                                            id="email"
                                            placeholder="Enter your email..."
                                            data-sb-validations="required,email"
-                                           required minlength="2" maxlength="20"/>
+                                           required minlength="2" maxlength="30"/>
 
                                     <label for="email">Email address</label>
                                     <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
@@ -90,5 +90,6 @@
         </main>
             <!-- Footer-->
             <div th:replace="~{fragments/fragment.html :: footer}"></div>
-    </body>
+                <div class="text-center"><a th:href="@{/newsletterall}">NEWSLETTER ALL</a><div>
+</body>
 </html>

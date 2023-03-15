@@ -1,5 +1,5 @@
-package org.perscholas.capstoneproject2.dao;
-import org.perscholas.capstoneproject2.model.AuthGroup;
+package org.perscholas.quanglecapstoneproject.dao;
+import org.perscholas.quanglecapstoneproject.model.AuthGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

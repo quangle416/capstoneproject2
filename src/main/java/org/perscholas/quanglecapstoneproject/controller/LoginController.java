@@ -1,4 +1,4 @@
-package org.perscholas.capstoneproject2.controller;
+package org.perscholas.quanglecapstoneproject.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

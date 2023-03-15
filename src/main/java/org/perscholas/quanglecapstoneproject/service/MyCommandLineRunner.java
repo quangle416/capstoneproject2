@@ -1,19 +1,18 @@
-package org.perscholas.capstoneproject2.service;
+package org.perscholas.quanglecapstoneproject.service;
 
 import jakarta.annotation.PostConstruct;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
-import org.perscholas.capstoneproject2.dao.*;
-import org.perscholas.capstoneproject2.model.Account;
-import org.perscholas.capstoneproject2.model.BlogPost;
-import org.perscholas.capstoneproject2.model.NewsLetter;
+import org.perscholas.quanglecapstoneproject.dao.*;
+import org.perscholas.quanglecapstoneproject.model.Account;
+import org.perscholas.quanglecapstoneproject.model.BlogPost;
+import org.perscholas.quanglecapstoneproject.model.NewsLetter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Component
 @Slf4j
@@ -23,25 +22,21 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
     AccountRepoI accountRepoI;
     BlogPostRepoI blogPostRepoI;
-    ImageRepoI imageRepoI;
     AccountService accountService;
     BlogPostService blogPostService;
-    ImageService imageService;
     NewsLetterRepoI newsLetterRepoI;
 
     @Autowired
-    public MyCommandLineRunner(AccountRepoI accountRepoI, BlogPostRepoI blogPostRepoI, ImageRepoI imageRepoI, AccountService accountService, BlogPostService blogPostService, ImageService imageService,
+    public MyCommandLineRunner(AccountRepoI accountRepoI, BlogPostRepoI blogPostRepoI, AccountService accountService, BlogPostService blogPostService,
                                NewsLetterRepoI newsLetterRepoI) {
         this.accountRepoI = accountRepoI;
         this.blogPostRepoI = blogPostRepoI;
-        this.imageRepoI = imageRepoI;
         this.accountService = accountService;
         this.blogPostService = blogPostService;
-        this.imageService = imageService;
         this.newsLetterRepoI = newsLetterRepoI;
     }
 
-    //@PostContruct makes method execute immediately after injection
+    //@PostContruct annotation makes method execute immediately after injection
     @PostConstruct
     void commandStarted() {
         log.warn("--------------- My CommandLineRunner is now starting ---------------");
@@ -63,10 +58,10 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
         //creating dummy data to check database connection for BlogPost model
 
-        BlogPost post1 = new BlogPost("Hello", "Lets talk about my interest", LocalDateTime.now());
-        BlogPost post2 = new BlogPost("HelloWorld", "Lets talk about you", LocalDateTime.now());
-        BlogPost post3 = new BlogPost("WhatsUp", "Baby on the move!", LocalDateTime.now());
-        BlogPost post4 = new BlogPost("Up", "Higher and Higher we Go!", LocalDateTime.now());
+        BlogPost post1 = new BlogPost("Hello", "Lets talk about your interest", LocalDateTime.now());
+        BlogPost post2 = new BlogPost("HelloWorld", "What will be your first application written?", LocalDateTime.now());
+        BlogPost post3 = new BlogPost("WhatsUp", "Baby on the move! Will she be running around soon?", LocalDateTime.now());
+        BlogPost post4 = new BlogPost("UpUpAndAway", "Higher and higher we shall go!", LocalDateTime.now());
 
         blogPostRepoI.saveAndFlush(post1);
         blogPostRepoI.saveAndFlush(post2);
